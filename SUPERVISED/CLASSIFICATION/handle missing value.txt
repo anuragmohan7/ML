@@ -1,0 +1,17 @@
+For numerical data ===> Use mean, median, or interpolation.
+        df['restecg']=df['restecg'].fillna(df['restecg'].mode()[0])     #Fill NaN with column's mode
+
+For categorical data ===> Use mode or a fixed value.
+        df.fillna(0, inplace=True)  # Replaces NaNs with 0
+
+For time series ===> Use forward fill, backward fill, or interpolation.
+        df.fillna(method='ffill', inplace=True)  #When to use: In time series data where the previous value is relevant (e.g., stock prices, weather data).
+        df.fillna(method='bfill', inplace=True)
+        df.interpolate(method='linear', inplace=True) #When to use: Best for time series or numerical data with a logical progression.
+                #method='linear' used for linear trend
+                #method='polynomial',order =2,3..    used for non linear trend
+                #method='time',order =2,3..    used for time based data
+                
+If too many missing values ===> Consider dropping rows or columns.
+        df.dropna(inplace=True)  # Drops rows with NaN values
+        df.dropna(axis=1, inplace=True)  # Drops columns with NaN values

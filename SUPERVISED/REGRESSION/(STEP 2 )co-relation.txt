@@ -1,0 +1,12 @@
+
+    CO-RELATION AND HEATMAP
+..................................
+
+plt.figure(figsize=(12,8))
+sns.heatmap(df.corr(numeric_only=True),annot=True,cmap='coolwarm',fmt='.2f',linewidths=0.5) #annot means write values inside cell,fmt .2f means Floating number with two decimal places
+plt.title('heatmap')
+plt.show()
+
+
+# after finding co-relation less co-related columns are removed
+df_selected=df_cleaned.drop(columns=['Gender','Height'])

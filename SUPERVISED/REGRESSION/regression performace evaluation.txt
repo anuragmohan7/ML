@@ -1,0 +1,13 @@
+in regression performance evaluation is based on errors, we should reduce errors
+
+1. MAE --> Mean Absolute Error 
+2. MSE --> Mean Squared Error
+3. RMSE --> Root Mean Squared Error
+4. MAPE --> Mean Absolute Percentage Error (most used,must be lowest)
+5. R2 Score --> Coeffience of Determination (most used,must be highest)
+
+from sklearn.metrics import mean_absolute_error,mean_absolute_percentage_error,mean_squared_error,root_mean_squared_error
+print('mean_absolute_error is',mean_absolute_error(y_test,y_pred))
+print('mean_absolute_percentage_error',mean_absolute_percentage_error(y_test,y_pred))
+print('mean_squared_error',mean_squared_error(y_test,y_pred))
+print('root_mean_squared_error',root_mean_squared_error(y_test,y_pred))

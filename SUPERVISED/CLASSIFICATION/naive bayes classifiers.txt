@@ -1,0 +1,5 @@
+# in naive bayes algorithm, 3 types of classifiers are their
+
+#1) Gaussian() ===> used when if the data is continous (all data are numeric)
+#2) Multinomial() ===> used when if the data is discret (data contains objects)
+#3) Bernouli() ===> used in both situation (it is used when negative values object are present in data, soo Multinomial not work )

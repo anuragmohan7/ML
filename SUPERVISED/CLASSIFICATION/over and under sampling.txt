@@ -1,0 +1,44 @@
+
+
+## OVER SAMPLING
+
+from imblearn.over_sampling import RandomOverSampler
+import pandas as pd
+
+# Separate features and target
+x = df.drop(['Preference'],axis=1)
+y = df['Preference']
+
+# Apply undersampling
+rus=RandomOverSampler(random_state=42)
+x_over, y_over = rus.fit_resample(x, y)
+
+# Combine resampled data into a new DataFrame
+df = x_over.copy()
+df['Preference'] = y_over
+
+# Check class distribution
+df['Preference'].value_counts()
+
+
+
+## UNDER SAMPLING
+
+
+from imblearn.under_sampling import RandomUnderSampler
+import pandas as pd
+
+# Separate features and target
+x = df.drop(['Preference'],axis=1)
+y = df['Preference']
+
+# Apply undersampling
+rus=RandomUnderSampler(random_state=42)
+x_under, y_under = rus.fit_resample(x, y)
+
+# Combine resampled data into a new DataFrame
+df = x_under.copy()
+df['Preference'] = y_under
+
+# Check class distribution
+df['Preference'].value_counts()

@@ -1,0 +1,17 @@
+#since the datatypes of input values are object, we should encode data
+#three encoding methods are:
+#1) Label Encoding ===> machine convert each object to random numeric value in a column
+#                           drawback of label encoding is a hierarchy is formed here randomly,In order to overcome this we use onehot
+            from sklearn.preprocessing import LabelEncoder
+            lab=LabelEncoder()
+            df['Gender']=lab.fit_transform(df['Gender'])
+            df['Married']=lab.fit_transform(df['Married'])
+
+
+#2) Onehot Encoding ===> One-hot encoding is a method used to convert categorical data into a numerical format that machine learning algorithms can process. 
+#                           It represents each category as a binary vector, where only one element is "hot" (1), and the rest are "cold" (0).
+#                           eg)  column vegetable contains five vegetables If we use one hot Encoding,Vegetable column will disappearand five new columns will appear
+#                               drawback of one hot encoding is, if many columns are formed model might overfit
+
+#3) Get Dummies ===> In order to overcome The drawbacks of one hot encoding we use get dummies, Get dummies is also similar to one hot encoding,
+#                      In get dummies The first column is removed But we can predict the value using other columns

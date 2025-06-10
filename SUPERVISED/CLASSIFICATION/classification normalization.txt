@@ -1,0 +1,24 @@
+#step 4 : NORMALIZATION or SCALING ( all input values into same range )
+#two methods are used
+
+#1) Standard Scaler     z=(x-u)/s
+
+                        #z=output
+                        #x=input
+                        #u=mean of training data
+                        #s=standard deviation of training data
+
+from sklearn.preprocessing import StandardScaler
+scaler=StandardScaler()
+scaler.fit(x_train) #here only x_train is fit, because we only need mean and standard deviation of training data
+x_train=scaler.transform(x_train) #transform means convert data to normal form
+x_test=scaler.transform(x_test)
+x_train
+
+
+#2) Min-Max Scaler      z = (X-min(X))  / max(X)-min(X)
+
+                        #z = output
+                        #X = input
+                        #min(X) = training data min value
+                        #max(X) = training data max value

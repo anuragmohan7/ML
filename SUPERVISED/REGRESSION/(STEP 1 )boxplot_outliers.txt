@@ -1,0 +1,29 @@
+
+
+        DETECT NUMERIC COLUMN OUTLIERS
+...........................................
+
+plt.figure(figsize=(10,6))
+numeric_columns=df.select_dtypes(include=[np.number]).columns  #np.number means only numeric column needed 
+sns.boxplot(data=df[numeric_columns])
+plt.title('box plot of all features')
+plt.xticks(rotation=45)
+plt.show()
+
+
+        REMOVE OUTLIERS USING IQR METHOD
+............................................
+
+outlier_columns=['Height','Weight','Heart_Rate','Body_Temp','Calories']  #these are the columns which have outliers
+def remove_outliers(df,columns):
+    for col in columns:
+        q1=df[col].quantile(0.25)
+        q3=df[col].quantile(0.75)
+        iqr=q3-q1
+
+        lower_bound=q1-1.5*iqr
+        upper_bound=q3+1.5*iqr
+
+        df=df[(df[col]>lower_bound)&(df[col]<upper_bound)]
+    return df
+df_cleaned=remove_outliers(df,outlier_columns)      # df_cleaned is outlier free dataframe

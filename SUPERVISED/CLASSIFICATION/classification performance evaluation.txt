@@ -1,0 +1,21 @@
+#after creating model, we should conduct performance evalution,
+#their are seperate performance evalution for classification and regression
+#   four evalution methods are their in classicifation
+
+# 1) Accuracy score  ==== (TP+TN)/TP+TN+FP+FN
+# 2) Recall   === It is used to give importance to false negatives, It is inversely proportional to false negative
+#                   TP/TP+FN
+# 3) Precision === It is used to give importance to false positive, It is inversely proportional to false positive
+#                   TP/TP+FP
+# 4) F1_score === It is a combination of recall and precision in a balanced performance mesurement
+#                   F1_score = 2((Recall * Precision)/(Recall + precision))
+
+# in classification evauation their performance is evaluted using a matrics called 'confusion matrics'
+# 4 techinical terms in confusion matrics are :
+
+
+#                                   y_test        y_pred
+#       TP : True Positive             1  =======>  1                           
+#       TN : True Negative             0  =======>  0
+#       FP : False Positive            0  =======>  1
+#       FN : False Negative            1  =======>  0
